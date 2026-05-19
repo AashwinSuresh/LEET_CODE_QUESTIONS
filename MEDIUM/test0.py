@@ -40,3 +40,7 @@ class Solution(object):
 obj = Solution()
 strs = ["ca","bb","ac"]
 print("NUMBER OF DELETIONS  : ",obj.minDeletionSize(strs))
+
+
+# this is the main branch , currently it doesnt have any things from the temp branch
+# but it will be later merged to the main branch
