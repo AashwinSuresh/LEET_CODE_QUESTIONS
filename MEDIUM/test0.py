@@ -27,19 +27,25 @@ class Solution(object):
             
             if(flag == 0):
                 for j in range(len(strs)):
-                    temp[j] = strs[j][k:]
-                k+=1
+                    temp[j] = strs[j][1:]
                 strs = temp 
                 deletions+=1
-                print(strs)
+                print(strs, " deletions : ",deletions)
             else:
-                print("lexicographically correct string : ",strs)
-                return deletions
+                break
+        print("lexicographically correct string : ",strs)
+        return deletions
 
 
 obj = Solution()
 strs = ["ca","bb","ac"]
+strs= ["zyx","wvu","tsr"]
+
 print("NUMBER OF DELETIONS  : ",obj.minDeletionSize(strs))
+
+# this is to check the working of the other branches temp 
+# this is only in temp and not in main 
+
 
 
 # this is the main branch , currently it doesnt have any things from the temp branch
