@@ -39,6 +39,7 @@ class Solution(object):
 
 obj = Solution()
 
+# INPUTS
 strs= ["zyx","wvu","tsr"]
 print("NUMBER OF DELETIONS FOR STRING ",strs,"  : ",obj.minDeletionSize(strs))
 
