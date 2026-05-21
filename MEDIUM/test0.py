@@ -10,38 +10,42 @@
 # - **Space Complexity:** $O(N)$ to track row-sorting states.
 
 
+
 class Solution(object):
 
-    def check_strs(self,strs):
-        for i in range(len(strs)-1):
-            if(strs[i] > strs[i+1] ):
-                return 0
-        return 1
+    def check_strs(self,temp,is_sorted):
+        for i in range(len(temp)-1):
+            if(not is_sorted[i] and temp[i] > temp[i+1] ):
+             return 0
+        return 1   
     def minDeletionSize(self, strs):
-        k=1
-        temp = strs
         deletions =0
+        rows =len(strs)
+        is_sorted = [False]*(rows-1)
         for i in range(len(strs[0])):
-            flag = self.check_strs(strs)
-            
+            current_col = [s[i] for s in strs]
+            flag = self.check_strs(current_col,is_sorted)
             
             if(flag == 0):
-                for j in range(len(strs)):
-                    temp[j] = strs[j][1:]
-                strs = temp 
-                deletions+=1
-                print(strs, " deletions : ",deletions)
+                deletions+=1 
             else:
-                break
-        print("lexicographically correct string : ",strs)
+                for i in range(rows-1):
+                    if(current_col[i]<current_col[i+1]):
+                        is_sorted[i] = True
+            
         return deletions
 
 
+
 obj = Solution()
-strs = ["ca","bb","ac"]
+
 strs= ["zyx","wvu","tsr"]
+print("NUMBER OF DELETIONS FOR STRING ",strs,"  : ",obj.minDeletionSize(strs))
 
-print("NUMBER OF DELETIONS  : ",obj.minDeletionSize(strs))
 
-# this is to check the working of the other branches temp 
-# this is only in temp and not in main 
+strs= ["ca","bb","ac"]
+print("NUMBER OF DELETIONS FOR STRING ",strs,"  : ",obj.minDeletionSize(strs))
+
+
+strs=["xga","xfb","yfa"]
+print("NUMBER OF DELETIONS FOR STRING ",strs,"  : ",obj.minDeletionSize(strs))
