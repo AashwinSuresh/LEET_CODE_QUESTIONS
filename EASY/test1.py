@@ -21,7 +21,7 @@
 
 
 class Solution:
-    def countNegatives(self, grid: List[List[int]]) -> int:
+    def countNegatives(self, grid):
         r=len(grid)
         c= len(grid[0])
         col =0 
