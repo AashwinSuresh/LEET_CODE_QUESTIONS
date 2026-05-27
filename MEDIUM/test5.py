@@ -21,7 +21,7 @@
 
 #APPROACH 1 
 class Solution1:
-    def pyramidTransition1(self, bottom: str, allowed: List[str]) -> bool:
+    def pyramidTransition1(self, bottom, allowed ) -> bool:
         transition_map ={}
         for string in allowed:
             key = string[:2]
@@ -58,7 +58,7 @@ class Solution1:
 
 #APPROACH 2 (SAME METHOD , BUT USES 2D LIST INSTEAD OF HASHMAP AND USES NUMERICAL COMAPRISON RATHER THAN STRING COMPARISON)
 class Solution2:
-    def pyramidTransition2(self, bottom: str, allowed: List[str]) -> bool:
+    def pyramidTransition2(self, bottom, allowed) -> bool:
         def char_to_int(ch) -> int:
             return ord(ch) - ord("A")
 
