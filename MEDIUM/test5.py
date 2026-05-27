@@ -96,3 +96,34 @@ class Solution2:
         current = [char_to_int(c) for c in bottom]
         return can_build(current,[],0)
 
+if __name__ == "__main__":
+    # Initialize the two solutions
+    sol1 = Solution1()
+    sol2 = Solution2()
+
+    # Test Case 1: Simple Valid Pyramid (Expected: True)
+    test1_bottom = "BCD"
+    test1_allowed = ["BCC", "CDE", "CEA", "FFF"]
+
+    # Test Case 2: Multi-layer failure/Dead end (Expected: False)
+    test2_bottom = "AAAA"
+    test2_allowed = ["AAB", "AAC", "BCD", "BBE", "DEF"]
+
+    # Test Case 3: Backtracking choices path (Expected: True)
+    test3_bottom = "AAB"
+    test3_allowed = ["AAA", "AAB", "ABA", "ABB", "BAC"]
+
+    print("--- RUNNING TEST CASE 1 (Expected: True) ---")
+    print(f"Approach 1 Result: {sol1.pyramidTransition1(test1_bottom, test1_allowed)}")
+    print(f"Approach 2 Result: {sol2.pyramidTransition2(test1_bottom, test1_allowed)}")
+    print("-" * 44 + "\n")
+
+    print("--- RUNNING TEST CASE 2 (Expected: False) ---")
+    print(f"Approach 1 Result: {sol1.pyramidTransition1(test2_bottom, test2_allowed)}")
+    print(f"Approach 2 Result: {sol2.pyramidTransition2(test2_bottom, test2_allowed)}")
+    print("-" * 44 + "\n")
+
+    print("--- RUNNING TEST CASE 3 (Expected: True) ---")
+    print(f"Approach 1 Result: {sol1.pyramidTransition1(test3_bottom, test3_allowed)}")
+    print(f"Approach 2 Result: {sol2.pyramidTransition2(test3_bottom, test3_allowed)}")
+    print("-" * 44 + "\n")
