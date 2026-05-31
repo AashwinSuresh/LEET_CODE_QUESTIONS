@@ -22,3 +22,29 @@ class Solution:
                     count+=1
                     print(f"incremented count : {count}")
         return count
+
+#INPUTS
+# Copy and paste these lines into your Python file to test your solution
+
+# Initialize your solution class
+sol = Solution()
+
+# Test Case 1: Standard Valid Case
+word1 = "aaAbcBC"
+print(f"Test 1 Output: {sol.numberOfSpecialChars(word1)}")  # Expected: 3
+
+# Test Case 2: No Uppercase Characters
+word2 = "abc"
+print(f"Test 2 Output: {sol.numberOfSpecialChars(word2)}")  # Expected: 0
+
+# Test Case 3: Lowercase appearing after Uppercase
+word3 = "AbBCab"
+print(f"Test 3 Output: {sol.numberOfSpecialChars(word3)}")  # Expected: 0
+
+# Test Case 4: Reverse order of all letters
+word4 = "ccBbaA"
+print(f"Test 4 Output: {sol.numberOfSpecialChars(word4)}")  # Expected: 0
+
+# Test Case 5: Complex Valid Case
+word5 = "dDeEfF"
+print(f"Test 5 Output: {sol.numberOfSpecialChars(word5)}")  # Expected: 3
