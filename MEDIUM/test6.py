@@ -1,4 +1,12 @@
+# Problem Count the Number of Special Characters II
 
+# You are given a string word. A letter c is called special if it appears both in lowercase and uppercase in word, and every lowercase occurrence of c appears before the first uppercase occurrence of c.
+
+# Return the number of special letters in word.
+
+# Constraints:
+# - 1 <= word.length <= 2 * 10^5
+# - word consists of lowercase and uppercase English letters.
 
 
 class Solution:
@@ -24,9 +32,8 @@ class Solution:
         return count
 
 #INPUTS
-# Copy and paste these lines into your Python file to test your solution
 
-# Initialize your solution class
+
 sol = Solution()
 
 # Test Case 1: Standard Valid Case
