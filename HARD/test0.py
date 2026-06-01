@@ -1,5 +1,5 @@
-class Solution:
-    def stringIndices(self, wordsContainer: List[str], wordsQuery: List[str]) :
+class Solution1:
+    def stringIndices1(self, wordsContainer , wordsQuery ) :
         suffix={}
         for i in range(len(wordsQuery)):
             word = str(wordsQuery[i])
@@ -44,4 +44,53 @@ class Solution:
             output.append(best_container_idx)
             print(f"\nOUTPUT : {output}\n")    
         return output
-        
+    
+
+
+
+
+
+
+
+
+
+
+
+#INPUTS
+import time
+# Initialize both solution objects
+# sol_optimized = Solution()
+sol_custom = Solution1()
+
+# --- Test Case 1: Standard Case (Example 1 from description) ---
+wordsContainer1 = ["aipbaofpopaabffapbbbubouuaououfbobobbffaiubafibbaoauiaiipppafubiuoiaappuaof","abufuubaiufuufuuooiibifiabuiopipapoffiiuiufbbiubobppufoaiiappiabfopiubbuuppiioiufbofibiobpboi","ufiuuuaaiouiaiappfufoiiooaobbfafipfiuoappofpibuoiifoppbbfaofoffioafouiupouaiiffboufbbfoiiuppo","uupiooabfpbpaaappofbpbobuaioipbpoppubioioiuapuibbfiffpuppfbabbaifuuoipuiaofb","buaabuiapffuaoufoobibpuaopbuubpoopuauaifbfiauafifubapffobabuobapop","fuupfaaiiooopfobfbpafuobpaiuiibpaaufppfaibpiabuiuppbboipoaipipobao","obuaabuuiiobbfauipaiffififfpufauiiuuoaaiiiufupifpfupoiooboif","aaafafiooipauifafufioupafapubbbfofabobopfbioiffouopoiaubpaaoaai","ipipiupouaiaaoaubofiaiiuooifuioippobaouipauboooouaiupbupufaoofbpooubfabbiobbupiuuapi","iuuooibpaoabffaiufooofuifpapapppuaaupfbbuiaoapoioipbabbaoupfiioaoooaoupapfapaffioppiaopbiufpouafubf","pifuifpoifaabaffbbfobbububfufuoouapboupbbioauubaapbpipopiaibupupufuifuuibuabiapopiiiuipfbboubbpipapf","auubuoaaibpffpppaauiiufuoaofuupubpiffoooapbpubuoobbpafaboauuubiibifafbuafbbbfpippfupauoiiiofoaaobufi","opiiufiffpoippbuaoabpoopiuiiuiuiabuboabffubuiuafaiuboopbo","uubpaouauobbabbiauoufuufpbifpapbbbfauipaifbiauopbpaiopaoopbbbiuo","ifoouiifpfabpifabbofuuauffibibouuipfbpbiauopoiiupfffiiuoubfaupaoobuifipoibabbpifbbibupabiupi","fpbuipibuppbffpuubufbbipooupioipuuibffbfbiapobuiuufuoopopioiuipibpuffabipapfo","bbbabaoofbpibpaaaubuobuoabfuaiipffoabubpbiafufpbbifoobpbbbapifipuiuiufapbboopaopbououboi","uufaappipbaffobiufipfffuiaouuafaouuipoooupufoiofuabfapbuafaafauobopoipfabbuubobbfopabpufiabiiaoffo","upuaobpapoabpaiiaabubiubaabbbfaiupuifaaipappiopuauioabauauffoufbuafofabufiopaiapiaiupbibfiioibpoapp","uuuibaaipbfuuiiufbuoopfabuuiofpappfipoaapfffoiiaioafaofpuafaofaoioiouoppuiuoafipuuibuifpb","auuupfpppbupafiupuuouubuioppbpiaifoibapbbopuooafoouufuap","pffiauapibfuuuopuuoaifbuuabupaufufofpbpupfobobbofobiuuiupoiiiiuofpfoafuauifbfoafpobiaoufiuoi","paaupioupuiifoippfuopfipappubffibiiaibpaaaopibffuiabpapibpi","uffipbibfaiaboufbbapboifauiaupobbiibbpupfupupofupoiopbpfbaoaubufbabbaupfabafpiipoobubafbo","obioifbupbaoaaiooouffiabobapaaaiffpiupaouauoaaapppappbfiuffpaabppoufubaapifafupbiuoiiii","ubuuiipaiiiffoboiaibufppbppopuuuauoppopbbifopibobuuppboafpioufibbubupbppboiobbuuuoufiupfuoiaubaopfp","bpiupiobobfbiiuibbuiabofpaffobuipoiuipiaaiuaufouabiafpaiboioouuifpapuooboapobffauoobiiuio","ibbuoopuofibauopoibuiooifoobfopubbubippaifbfippiiboobapuuffiabbpbofuaoiuopfoiiaaiofaibouofbboip","ooipaafpbfaioapupuoppfbpfpifiopffipbauiaifpaiioibufiaou","pfooafobbipoabbbbuuiobapubfibuffuuaubfupabpbiibibuafuaiufobauabiofouabaofuiuoobaboopbouippb","iaaffbbiiobfauiiiuiupaibabfpapiubfooaippaufafppifaafffaipbaiuoioiff","ifbubufiaiapfufiauouffppiiauoibbaiaifaobiibfoapibbfaiiubabubuiaiufffufuouboppipufopobiuaaiab","opopbpbaooipbapbafabopubfouifiafaafuffabbpbupafipiioufaufiifbuoifabbuaffopobpaiappbbou","piuoufbaoifbpoibbfppufobouuufupoafpuaffofoaiafffbibbabbouubfoapbfiuofauaoifiabfbbpfaouaaopfuip","puppiibfiiioopffubioibauibfifuappioiobbapobfapipapbbfpbibpfaauiipibfbabbofi","apfabiauffiubbpbiuaofpoiiibpbaiiffuaipiopbupiopbubiooabouiufpaioupobibfapfaupibioifaaooppo","iopobafpaaoipfofbobiuboibfuuobfbpobuoapubpibaboofobaaffiuabpfiiaopaaoioaoapupuoiuaobfpiop","oopbfipoipoupoubffpabopfopoopfabpuaufoubabfbifapfpbfofoufofipiofiiaffubuuaifpofb","fiuoiaauuoouifufbuafifiubufbiuoofpbfipaoaiofbpiaufpoiffubpubbpufuoouapaupbfoioibbab","baauufffpipiuaupuapbaiuiouubbbibbioaopifbaauufbpaubbpiaffoffoiuuobppp","fufipfboaubfbbaiafaaoobobofupbfopbaipffoppfpabuiuoab","faofffauuobpbbpuopfbiiuuufpipbapofaafbbpfioioboopifubibibppbobuoiioobaaabupaoaooiipaoaiupbfuif","iippbaauubbipiofbuopoopobobfibbboppfaoouooauaifpauiboiuiuaopfiaufipiuaopp","fpofpuapfaiiaioubbauapfpiubbaaiiioppbobobffbooooiopuiapbpupuppupifffouafipofappiaoopioia","ibubfbfiupfipoboobiauabipiuaopfoiifuiauaufiaiiauoaupobi","ippioofbupaoaaifaibfouaippoabaubaibiofiopiopaafubpuobbbiffifoafbffuupbfbbiaappboi","pafpioibuiuiibbuufupoipbbobfiuaofiafioupfuaafappabbpppbuiubuppboufbipoiff","ofaoofoiupapbafoiaafipuufoofpbbfuubaouifuipbpffaapiuuoppfpooiabbpabffbpbubfioiifaoaaaooiaoi","aibbpaiopuoapaffpopbbfoioppbiiupbiipbpbauuooubfoup","obpiuupaoipbpofifaipffiuaubpaffpbaiffabpfuufioapbobofaiooibiaiuiuubbuifbubb"]
+wordsQuery1 = ["ffoabupbfoiafofiouapappofuuuuupufpuaufouiauiaupoaaoiauiafiupuofiubppbpouiafpp","afoopfupapoioafiooobubfobfbfapiufbfuffpbbbpppfaioiopbuaiiobipobuopfai","fifbppfopauffoiapifabpabuufpiabbibafoiaooiiuaffaaipffffaoaoioioapiaffiuufppobboapaofupobppiiff","iiafpfbfoiopabfuaauipapbpbpfppipboiooffiiupbiiaafbffobbiipifaioafooioiibffuoupuiffipaio","aaapbiaafappbfuiffiauuaobpbaffbaiffuoppopaiiaffuabbpbfifiuauofubupfafbiouifpaoio","pifopufbufuffffofiiuoaoabubaufupffuaipopooooufibbafoiofpiufuubobfb","uopabbopaubfbpuobfoapoooobbouabuooouofbibbiubffiuiiopbabaiuibaopfaubboaf","obaboofipufipufaibbfuaiiibopboouaauiupiopooafpbfubaipbbiobuaifbfpoiiaiuabaofuffbbofobop","pofifbbfoaaoafpbupiaaupabbfpfoufiopffiouapouuboiiabiaauuofafiapoopopobpbbboububauffi","pbobbifofpubioaubiipaoabaipbaiapfbofabpabuuiaboaofoofpuiaupfppiupfupaiapiippobob","aiifuooabuiubpobbfiuooaupfiaofffafoifpppibfbofabubbouuafuofffuaauiufoffobufibuibabafuioubiaffiobpapp","aopaoouuipopbbiiopboofoauoupiiuoaoifoauobffpuobbupooiabfoppipuofbiffofbupufaafffuaobapaffiapaouiff","puuifaoaufuapfpfupaaiuupofbbafaauabubiaoibiobppuaaopbaoipbaoobiiu","pbibuiippppofbbfiofioiiiiuuuboifoiibiiaupapufuoiabuaoauupbbuifoippuupbabufuafiabfooaoaobibp","ipiouaaoipabbafiobfffiiaufuabouubfioupfpufabufibafffipfbuaiap","baafbufiibaufbiiuuifaoiifbiibpipoopbpaubiappipubbuopiafofuuuiaoiuuopioaipauiufpfoiufpp","ffoiopfiifbibbipfpiuaifoobuiiooppfupoupupaofipiouoiupobbfabppfooiiboaubi","oofuuoaapiafibuiuufipafaoubioppuuoofppfubbafpbfiuufpfi","pufbofubfuiubopfifbapapuufuibuaffpabuufapiifiaibppppboiopipffp","fuuuuuaufufiubupaobpfbfppauubuibfiappipibbouuoiibuiofaoubuiubfubufpfouaouaffaubopippoapapuub","oiauobofuuiioaapbbupubpbbfbiiouiubabpiubppbuoappbfbofuofbaoofoupaafupiifoifpapuiappobaiapiafou","iuobioauuiiiopuaupbbioiauafauiufffbbupuiaiabiouopaipppfpfipbffuafpoiffobaooauuuau","pbaoifuaaouoffaoifabopubobpouuopbapuffuooaaiiuiabfuiiopiifpaobufobuffopiao","apbiobaufiuoapiuipoaooipabuiaiiafuaopufupipoufioouibfppoffofiibffuiffuuiabbiuafiaioa","ppiuubffbioiiafabfbbfbiaoiifaffpouuaibpubfaubboiioabuipufaiiopbpifppobapiaoobpffuubpifoiupf","buuaiaioofpffiabubifauapuippubibbbifoauiaauopuifuuubfpufupoiaiuafaoapiu","oafofbpaaaofuibafobaiuuuuububboouofufiaiuobabuouaffpooabauaubfauuapiupiufapfuobuifpuap","aioaapapuafobfffppouupffufaioaiafbubbbuupaabioufubiaiaaauuofiipfauuopboi","puffibbaiouoiioafuaoiipaafuppoupibiauipobffoaouffofuiooopupbpioufubpopi","fipibfapbuuobpoouifbpaufiifiiuoppfbfpiiufufpfoppbaiaiupabp","baoiiipbouaafpopfioipfufapubpfpbupubuiipfuibuauoopaofoaoubopbbaaipopia","upbupffiiooiippaipuufifopoppoaiiuupubuapbiobibfpooauauuauuobfuioioboofupopfoubpbfouf","aupfbbfffaupfabfiipbffaifaifibofouaabuifaaouffiffapubbia","pfiuooaupffufibabauboafiuuaboiuioppofpffpbbaipfubaoabouipubppapbpubopouabfabpupuuiaaoboabfbbfpfaifi","oappubibiiubibfobfpbufuaiopiouuuuuafoppoiubbpopuobfiiioo","bbufpopoooiuufuafoufpiaaibofbfbbuipupopiaiuopbupiupoafpobafiubboubbaoaapaaffbbffopffpioi","aioaiubbbbifbibfbibbaiuoofoobaoifofpobbiaoapabapfaaifpai","oiuffibibpaubpibpbbpubppbuubiiuoobiabfiaooppibpubboafupbfpa","ipbioobbapafiubpopfuoopoibaiibbiufufafbffaiooaauououfifo","piafaifbpuabiafaoaaibiapppfaiiuiouboabouifaobaappiofuoiop","fpooibiaippaboabiabaoopfafuaiouuupiobffauuopuofbaipaff","uufpfpfafbobffpbfobupbfabuiopopopiobipppiboipiobfiapubiufbbofpouobuauoobfbifubaoffbfobbifaabuo","aiubfoppoofaaoioobfiifufuoiouiobapiabpoofiipbibaupbappoupfoabp","fupfauabafpfiabffpfafbioibfoiuuipfuuubouafoofpuofofaooupiaibiapu","ipafuooofofubuoiuuoaoobupbfofuoboffaooboufbpobuoaffppbipiofiufffppufafpbibaoaf","piofubufabbfuufpopabopipauibuaobiuiiipbbfiupfpbpiuofaioufofbufpuuuiuboafobofpauoifiboffofabfoupipi","aooboubooubbobbbfufuffuapfiuubuaibuaufibifiuiopoiauaoufbuioabofiuifopaoobapbiaoafou","bouuaaaoiiupouffaofobuabipooaopapfaauioaiufopppuopaobbpppobb","fbbauaaaoiiufaoppoofbibaaoaofoupabiffaaiupoiappouapbpbppabupofiiba","oapuiobapfpobaubpbfboapioiouffoouopoaaiibuofiuaubppafaapipafubpoaappoupoobafb"]
+
+print("--- Test Case 1 ---")
+start_time = time.perf_counter()
+# print(f"Optimized Code Output: {sol_optimized.stringIndices(wordsContainer1, wordsQuery1)}")
+print(f"Your Custom Code Output: {sol_custom.stringIndices1(wordsContainer1, wordsQuery1)}")
+end_time = time.perf_counter()
+print("Expected Output:        [1, 1, 1]\n")
+time_taken = end_time-start_time
+print(f"TIME TAKEN : {time_taken:.5f}")
+
+
+# # --- Test Case 2: Multi-character match with length tie-breaker (Example 2) ---
+# wordsContainer2 = ["abcdefgh", "poiuygh", "ghghgh"]
+# wordsQuery2 = ["gh", "acbfgh", "acbfegh"]
+
+# print("--- Test Case 2 ---")
+# print(f"Optimized Code Output: {sol_optimized.stringIndices(wordsContainer2, wordsQuery2)}")
+# print(f"Your Custom Code Output: {sol_custom.stringIndices1(wordsContainer2, wordsQuery2)}")
+# print("Expected Output:        [2, 0, 2]\n")
+
+
+# # --- Test Case 3: Complete Fallback (No matching suffixes at all) ---
+# wordsContainer3 = ["apple", "cat", "dog"]
+# wordsQuery3 = ["xyz", "mno"]
+
+# print("--- Test Case 3 ---")
+# print(f"Optimized Code Output: {sol_optimized.stringIndices(wordsContainer3, wordsQuery3)}")
+# print(f"Your Custom Code Output: {sol_custom.stringIndices1(wordsContainer3, wordsQuery3)}")
+# print("Expected Output:        [1, 1]  (Both fall back to 'cat' at index 1 because it is shortest/earliest)")
