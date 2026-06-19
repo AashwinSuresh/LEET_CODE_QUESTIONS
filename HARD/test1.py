@@ -1,3 +1,19 @@
+# Problem: Block Placement Queries (LeetCode 3161)
+
+# There is an infinite number line starting at coordinate 0. You process a 2D array of queries sequentially:
+
+# 1. [1, x]: Place a permanent obstacle at coordinate x. 
+#    It is guaranteed that no obstacle exists at x when the query is asked.
+
+# 2. [2, x, sz]: Check if a block of size sz can fit completely inside the range [0, x] 
+#    without overlapping any obstacles. The block can touch obstacles at its outer edges, 
+#    but no obstacle can sit strictly inside it. Note that you do not actually place the block.
+
+# Return an array of booleans containing the true/false results for each type 2 query in order.
+
+
+from typing import List
+
 class Solution1:
     def getResults1(self, queries: list[list[int]]):
         blocks=[]
@@ -623,4 +639,60 @@ class Solution2:
         return ans
                 
 
+# ==========================================
+# TEST RUNNER ENGINE
+# ==========================================
+
+# Test Case 1: Your original edge case problem scenario
+# Placing an obstacle at 7, checking if size 6 fits up to 7 (True: space 0->7)
+# Placing an obstacle at 2, checking if size 5 fits up to 7 (True: space 2->7)
+# Checking if size 6 fits up to 7 (False: space 0->2 is size 2, 2->7 is size 5)
+queries1 = [[1, 7], [2, 7, 6], [1, 2], [2, 7, 5], [2, 7, 6]]
+expected1 = [True, True, False]
+
+# Test Case 2: The specific "Multiple Obstacle Intersection Check" you raised
+# Obstacles end up at [2, 5, 7]. A query [2, 7, 6] searches up to 7 for size 6.
+# It should check if a gap of 6 exists. Available gaps are 0->2 (size 2), 2->5 (size 3), 5->7 (size 2).
+# Maximum gap is 3, so a size 6 block cannot fit.
+queries2 = [[1, 2], [1, 5], [1, 7], [2, 7, 6]]
+expected2 = [False]
+
+# Test Case 3: The Trailing Gap Cut-Off Scenario
+# Places an obstacle at 2, and next one at 10. 
+# Query asks if size 5 can fit up to 7. 
+# The space between 2 and 7 is exactly 5, so it should return True.
+queries3 = [[1, 2], [1, 10], [2, 7, 5]]
+expected3 = [True]
+
+# Test Case 4: No obstacles present on the board
+# Testing clean space queries where blocks should easily fit within limits.
+queries4 = [[2, 5, 5], [2, 5, 6], [2, 10, 3]]
+expected4 = [True, False, True]
+
+
+# Run Tests Function
+def run_tests(sol1_instance, sol2_instance):
+    test_cases = [
+        ("Test 1 (Original Workflow)", queries1, expected1),
+        ("Test 2 (The Multi-Block Check)", queries2, expected2),
+        ("Test 3 (Trailing Gap Check)", queries3, expected3),
+        ("Test 4 (Empty Board Base Case)", queries4, expected4)
+    ]
     
+    print("=== RUNNING BRUTE FORCE LOGIC (SOLUTION 1) ===")
+    for name, q, exp in test_cases:
+        try:
+            res1 = sol1_instance.getResults1(q)
+            print(f"{name} Result: {res1} | Expected: {exp} -> {'PASS' if res1 == exp else 'FAIL'}")
+        except Exception as e:
+            print(f"{name} crashed on Solution1: {e}")
+            
+    print("\n=== RUNNING OPTIMIZED LOGIC (SOLUTION 2) ===")
+    for name, q, exp in test_cases:
+        res2 = sol2_instance.getResults2(q)
+        print(f"{name} Result: {res2} | Expected: {exp} -> {'PASS' if res2 == exp else 'FAIL'}")
+
+# Example Usage (Uncomment below after pasting your class definitions to run):
+s1 = Solution1()
+s2 = Solution2()
+run_tests(s1, s2)  
