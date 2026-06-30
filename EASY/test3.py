@@ -57,7 +57,7 @@ class Solution1:
             candy_2 = cost.pop(0)
             min_cost+=candy_1+candy_2
             if not cost:
-                return min_cost
+                return min_costes
             free_candy = cost.pop(0)
         return min_cost
 
